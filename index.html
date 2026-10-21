@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Weather & HAKI Advisor | Smart Ecolife</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+
+    <!-- SIDEBAR NAVIGATION -->
+    <nav class="sidebar" id="sidebar">
+        <a href="#" class="logo">
+            <i class="fas fa-leaf"></i>
+            <span>EcoAdvisor</span>
+        </a>
+        
+        <ul class="nav-links">
+            <li><a href="#" class="active"><i class="fas fa-cloud-sun"></i> Weather & Health</a></li>
+            <li><a href="#"><i class="fas fa-shield-alt"></i> HAKI Analysis</a></li>
+            <li><a href="#"><i class="fas fa-chart-pie"></i> Eco-Startup Plan</a></li>
+        </ul>
+
+        <div class="haki-badge">
+            <i class="fas fa-copyright"></i>
+            <p><strong>Proyek Kokurikuler</strong><br>Integrasi Informatika & PKWU<br><em>Perlindungan HAKI Produk Digital</em></p>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <header class="header">
+            <div>
+                <h1>Eco-Weather & <span>Health Advisor</span></h1>
+                <p>Data real-time dari Open-Meteo API untuk mendukung Smart Ecolife.</p>
+            </div>
+        </header>
+
+        <!-- Search Box -->
+        <section class="search-container">
+            <input type="text" id="cityInput" placeholder="Masukkan nama kota (contoh: Malang, Jakarta, Tokyo)..." onkeypress="handleKeyPress(event)">
+            <button id="searchBtn" onclick="fetchWeatherData()">
+                <span id="btnText">Cek Data</span>
+                <div class="loader" id="btnLoader"></div>
+            </button>
+        </section>
+
+        <!-- Results Grid -->
+        <section class="results-grid" id="resultsGrid">
+            
+            <!-- Temperature Card -->
+            <div class="result-card">
+                <div class="card-title"><i class="fas fa-temperature-high"></i> Suhu Saat Ini</div>
+                <div class="card-value" id="valTemp">-- <span>°C</span></div>
+            </div>
+
+            <!-- Humidity Card -->
+            <div class="result-card">
+                <div class="card-title"><i class="fas fa-tint"></i> Kelembapan</div>
+                <div class="card-value" id="valHumidity">-- <span>%</span></div>
+            </div>
+
+            <!-- AQI Card -->
+            <div class="result-card" style="grid-column: span 1;">
+                <div class="card-title"><i class="fas fa-wind"></i> Kualitas Udara (AQI)</div>
+                <div class="card-value" id="valAqi">--</div>
+                <div id="aqiStatus" class="status-badge">Memuat...</div>
+            </div>
+
+            <!-- Advice Box -->
+            <div class="advice-box">
+                <i class="fas fa-user-md"></i>
+                <div class="advice-text">
+                    <h3>Eco-Health Recommendation</h3>
+                    <p id="adviceText">Memuat saran kesehatan...</p>
+                </div>
+            </div>
+
+            <!-- Location Info -->
+            <div class="result-card" style="grid-column: 1 / -1; background: transparent; border: none; box-shadow: none; padding: 0;">
+                <p style="color: var(--text-light); font-size: 1rem;">
+                    <i class="fas fa-map-marker-alt"></i> Lokasi: <strong id="valLocation" style="color: var(--primary);">--</strong> 
+                    | Sumber Data: <a href="https://open-meteo.com/" target="_blank" style="color: var(--primary);">Open-Meteo API</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- QR Code Section -->
+        <section class="qr-section">
+            <img id="qrCodeImage" src="" alt="QR Code Akses Web">
+            <div class="qr-text">
+                <h3>Scan untuk Mengakses</h3>
+                <p>Bagikan aplikasi ini kepada teman atau guru Anda. Pindai QR Code di samping menggunakan kamera ponsel untuk membuka halaman ini secara langsung.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Link to External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
